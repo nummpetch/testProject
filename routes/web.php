@@ -23,5 +23,8 @@ Route::get('/register', function () {
 Route::get('/comment', function () {
     return view('comment');
 });
+Route::get('/home_page', function () {
+    return view('home_page');
+});
 Route::post('login','loginController@signin');
 Route::post('register','registerController@signup');
