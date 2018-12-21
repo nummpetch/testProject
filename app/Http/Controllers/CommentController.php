@@ -22,7 +22,7 @@ class CommentController extends Controller
         $comment->message = request('comment');
         //return($comment);
         $comment->save();
-        //return redirect()->intended('post/',$id);
+        return redirect('post/'.$id);
 
     }
 }
