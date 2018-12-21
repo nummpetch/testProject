@@ -27,16 +27,16 @@ Route::get('/home_page', function () {
     $posts = DB::table('posts')->get();
 
     return view('home_page')->with('posts',$posts);
-});
-Route::get('/post/{postId}', function ($postId) {
+})->middleware('auth');
+Route::get('/post/{postId}', function ($postId=NULL) {
    
-    $posts = DB::table('posts')->where('id',$postId)->select('title','body')->get();
-    $comment = DB::table('comment')->where('post_id',$postId)->value('message');
-    
-    //dd($post[0]->body);
-    
-    //eturn $id;
-    return view('comment_post')->with('posts',$posts);
+    $posts = DB::table('posts')->where('id',$postId)->select('id','title','body')->first();
+    $comments = DB::table('comment')->where('post_id',$postId)->select('message')->get();
+    $data=array('posts'=>$posts,'comments'=>$comments);
+    //dd($data['comments'][1]->message);
+    //dd(compact($posts,$comments));
+    //return $id;
+    return view('comment_post')->with('data',$data);
 });
 
 
@@ -44,3 +44,5 @@ Route::get('/post/{postId}', function ($postId) {
 Route::post('login','loginController@signin');
 Route::post('register','registerController@signup');
 Route::post('create','CreateController@store');
+Route::post('/post/comment/{id}','CommentController@store');
+Route::post('comment_post','CommentController@store');

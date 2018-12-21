@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    public $table = "comment";
     public function user(){
         return $this->belongTo('App\Models\User');      
     }

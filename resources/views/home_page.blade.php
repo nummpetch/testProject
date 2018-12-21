@@ -43,7 +43,7 @@
 
     <!--comment-->
     <div class="container">
-      <!-- Example row of columns -->
+     
       <div class="row">
     @foreach ($posts as $post)
     <div class="col-md-4">

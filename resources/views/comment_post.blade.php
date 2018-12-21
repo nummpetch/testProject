@@ -12,8 +12,6 @@
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.1/examples/floating-labels/floating-labels.css" rel="stylesheet">
   </head>
 
 
@@ -33,24 +31,31 @@
     
 @endguest
 <!----post---->
+
 <body>
+        
  
     <div class="text-center mb-4">
-      <img class="mb-4" src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">{{$posts[0]->title}}</h1>
-      <p>{{$posts[0]->body}}</a></p>
+           <h1 class="h3 mb-3 font-weight-normal">{{$data['posts']->title}}</h1>
+      <p>{{$data['posts']->body}}</a></p>
     </div>
 
 
 
 <!---comment--->
-<form class="comment">
+<form  method="POST" action="comment/{{$data['posts']->id}}">
+    @csrf
     <div class="form-label-group">
-        <input type="comment" id="comment" class="form-control" placeholder="comment" required autofocus>
-        <label for="comment">Email address</label>
+        <input name="comment" type="text" id="comment" class="form-control" placeholder="comment" required autofocus>
       </div>
-
       <button class="btn btn-lg btn-primary btn-block" type="submit">comment</button>
+    </form>
+<!--last comment-->
+    @foreach ($data['comments'] as $comment)
+        <li>
+            {{$comment->message }}
+        </li>
+    @endforeach
  </form>
   </body>
 </html>
