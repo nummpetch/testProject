@@ -15,9 +15,9 @@ class registerController extends Controller
         $user=new User();
         $user->username =request('username');
         $user->display_name =request('username');
-        $user->password = request('password');
+        $user->password = bcrypt(request('password'));
         $user->save();
-        return  view('home_page');
+        return redirect()->intended('login');
         
         
     }
