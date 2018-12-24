@@ -14,6 +14,10 @@
     <link href="https://getbootstrap.com/docs/4.1/examples/product/product.css" rel="stylesheet">
     
   </head>
+  <!--localization-->
+  @lang('home_page.message')
+  
+  
 
 
   <!-- Authentication Links -->
@@ -38,7 +42,7 @@
 <!----Button Comment--->
   <body class="text-center">
     <form action="/create">
-        <input type="submit" value="Create Post" />
+        <input type="submit" value="{{__('home_page.post')}}" />
     </form>
 
     <!--comment-->
@@ -49,7 +53,7 @@
     <div class="col-md-4">
       <h2>{{$post->title}}</h2>
       <p>{{$post->body}}</p>
-      <p><a class="btn btn-secondary" href="/post/{{$post->id}}" role="button">Comment &raquo;</a></p>
+      <p><a class="btn btn-secondary" href="/post/{{$post->id}}" role="button">{{__('home_page.comment')}} &raquo;</a></p>
       
     </div>
       

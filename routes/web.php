@@ -23,6 +23,9 @@ Route::get('/register', function () {
 Route::get('/create', function () {
     return view('create');
 });
+Route::get('/settings', function () {
+    return view('settings');
+});
 Route::get('/home_page', function () {
     $posts = DB::table('posts')->get();
 
@@ -46,3 +49,4 @@ Route::post('register','registerController@signup');
 Route::post('create','CreateController@store');
 Route::post('/post/comment/{id}','CommentController@store');
 Route::post('comment_post','CommentController@store');
+Route::post('re_password','settingController@rePassword');

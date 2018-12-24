@@ -23,7 +23,7 @@
       @csrf
 
       
-      <h1 class="h3 mb-3 font-weight-normal">Create here!</h1>
+    <h1 class="h3 mb-3 font-weight-normal">{{__ ('create.create')}}</h1>
       <label for="inputEmail" class="sr-only">Title</label>
       <input  name="title" id="inputTitle" class="form-control" maxlength="255" placeholder="Title" required autofocus>
       <label for="inputbody" class="sr-only">Text comment here</label>
@@ -31,7 +31,7 @@
       <div class="checkbox mb-3">
         
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">{{__('create.submit')}}</button>
       <p class="mt-5 mb-3 text-muted">&copy; Member Comment</p>
     </form>
 

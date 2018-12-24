@@ -48,7 +48,7 @@
     <div class="form-label-group">
         <input name="comment" type="text" id="comment" class="form-control" placeholder="comment" required autofocus>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">comment</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">{{__('comment_post.comment')}}</button>
     </form>
 <!--last comment-->
     @foreach ($data['comments'] as $comment)
