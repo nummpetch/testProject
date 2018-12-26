@@ -40,7 +40,7 @@ class loginController extends Controller
         if (Auth::attempt(['username' => Input::get('username'), 'password' => Input::get('password')])) {
             // Success
             //return ("success");
-            return redirect()->intended('home_page');
+            return redirect()->intended('homePage');
         } else {
             // Go back on error (or do what you want)
             return redirect()->back();

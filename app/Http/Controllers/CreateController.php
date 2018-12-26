@@ -23,6 +23,6 @@ class CreateController extends Controller
         $post->body =request('body');
         //return $post;
         $post->save();
-        return redirect()->intended('home_page');
+        return redirect()->intended('homePage');
     }
 }

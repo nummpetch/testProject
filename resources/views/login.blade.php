@@ -25,7 +25,7 @@
       <img class="mb-4" src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="username" class="sr-only">username</label>
-    <input  name="username" id="username" class="form-control" placeholder="username" value="{{old('username')}}"required autofocus>
+    <input type="name" name="username" id="username" class="form-control" placeholder="username" value="{{old('username')}}"required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">

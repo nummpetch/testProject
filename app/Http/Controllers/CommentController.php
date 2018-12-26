@@ -20,7 +20,6 @@ class CommentController extends Controller
         $comment->user_id = Auth::user()->id;
         $comment->post_id = $id;
         $comment->message = request('comment');
-        //return($comment);
         $comment->save();
         return redirect('post/'.$id);
 

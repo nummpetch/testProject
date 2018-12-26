@@ -10,37 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('/', 'login');
+Route::view('/login', 'login');
+Route::view('/register', 'register');
+Route::view('/create', 'create')->middleware('auth');
+Route::view('/settings', 'settings')->middleware('auth');
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/create', function () {
-    return view('create');
-});
-Route::get('/settings', function () {
-    return view('settings');
-});
-Route::get('/home_page', function () {
+Route::get('/homePage', function () {
     $posts = DB::table('posts')->get();
-
-    return view('home_page')->with('posts',$posts);
+    return view('homePage')->with('posts',$posts);
 })->middleware('auth');
+
 Route::get('/post/{postId}', function ($postId=NULL) {
-   
     $posts = DB::table('posts')->where('id',$postId)->select('id','title','body')->first();
     $comments = DB::table('comment')->where('post_id',$postId)->select('message')->get();
     $data=array('posts'=>$posts,'comments'=>$comments);
-    //dd($data['comments'][1]->message);
-    //dd(compact($posts,$comments));
-    //return $id;
     return view('comment_post')->with('data',$data);
-});
+})->middleware('auth');
 
 
 
