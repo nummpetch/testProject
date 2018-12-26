@@ -32,7 +32,7 @@
       <a >
           {{ Auth::user()->username }} <span class="caret"></span>
       </a>
-      <a href="/settings">re password</a>
+    <a href="{{route('settings')}}">re password</a>
 
      
       </div>

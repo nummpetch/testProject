@@ -11,10 +11,10 @@
 |
 */
 Route::view('/', 'login');
-Route::view('/login', 'login');
-Route::view('/register', 'register');
-Route::view('/create', 'create')->middleware('auth');
-Route::view('/settings', 'settings')->middleware('auth');
+Route::view('/login', 'login')->name('login');
+Route::view('/register', 'register')->name('register');
+Route::view('/create', 'create')->middleware('auth')->name('create');
+Route::view('/settings', 'settings')->middleware('auth')->name('settings');
 
 Route::get('/homePage', function () {
     $posts = DB::table('posts')->get();
@@ -26,7 +26,7 @@ Route::get('/post/{postId}', function ($postId=NULL) {
     $comments = DB::table('comment')->where('post_id',$postId)->select('message')->get();
     $data=array('posts'=>$posts,'comments'=>$comments);
     return view('comment_post')->with('data',$data);
-})->middleware('auth');
+})->middleware('auth')->name('post');
 
 
 

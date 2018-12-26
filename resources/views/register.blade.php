@@ -35,7 +35,7 @@
       <input type="Password" name="password_confirmation" id="password_confirmation " class="form-control" placeholder="Confirm Password" required>
       
       <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit" >Sign up</button>
-      <a href="/login">login</a>
+    <a href="{{route('login')}}">login</a>
 
       @if($errors ->any())
         <div class="notificaation is-danger">

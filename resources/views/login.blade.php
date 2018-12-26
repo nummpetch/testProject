@@ -32,7 +32,7 @@
         
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <a href="/register">sign up</a>
+      <a href="{{route('register')}}">sign up</a>
       <p class="mt-5 mb-3 text-muted">&copy; Member Comment</p>
       @if($errors ->any())
         <div class="notificaation is-danger">
