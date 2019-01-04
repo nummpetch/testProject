@@ -38,12 +38,19 @@
       </div>
     
 @endguest
+<!--switch language -->
+<br><form action='set_language' method='post'>
+  @csrf
+  Change Language 
+  <button name='language' type='submit' value="TH">TH</button>
+  <button name='language' type='submit' value="EN">EN</button>
+</form><br>
 
 
 <!----Button Comment--->
   <body class="text-center">
     <form action="/create">
-        <input type="submit" value="{{__('home_page.post')}}" />
+      <input type="submit" value="{{__('home_page.post')}}" />
     </form>
 
     <!--comment-->

@@ -8,10 +8,10 @@ class Comment extends Model
 {
     public $table = "comment";
     public function user(){
-        return $this->belongTo('App\Models\User');      
+        return $this->belongsTo('App\Models\User');      
     }
     public function post(){
-        return $this->belongTo('App\Models\Post');
+        return $this->belongsTo('App\Models\Post');
         
     }
 }

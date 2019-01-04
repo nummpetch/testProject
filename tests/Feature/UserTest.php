@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
+//./vendor/bin/phpunit
 class UserTest extends TestCase
 {
     /**
@@ -17,18 +17,10 @@ class UserTest extends TestCase
     {
         $response = $this->get('/');
         $response->assertStatus(200);
-
+        $this->assertTrue(true);
     }
-    public function testExample()
-    {
-        $data = [
-            'username' => "usertest",
-            'password' => "123456"]
-            
-        //create fake user
-        $user = factory(\App\User::class)->create();
-        //send request json
-        $response = $this->actingAs($user, 'api')->json('POST', '/login/products',$data);     
-
+    public function tert_login(){
+       $response = $this->get('/login');
+       $response = assertViewIs('auth.login');
     }
 }

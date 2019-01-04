@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Models\Post;
+use App\Models\User;
+//Route::view('/', 'login');
+
 Route::view('/', 'login');
 Route::view('/login', 'login')->name('login');
 Route::view('/register', 'register')->name('register');
@@ -36,3 +40,4 @@ Route::post('create','CreateController@store');
 Route::post('/post/comment/{id}','CommentController@store');
 Route::post('comment_post','CommentController@store');
 Route::post('re_password','settingController@rePassword');
+Route::post('set_language','LanguageController@setLanguage');
