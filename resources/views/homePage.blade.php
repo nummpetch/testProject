@@ -21,8 +21,8 @@
 
 
   <!-- Authentication Links -->
-  
-    
+  {{session('language')}}
+ 
   @guest
   <br>
       <a class="navbar-brand" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -42,8 +42,8 @@
 <br><form action='set_language' method='post'>
   @csrf
   Change Language 
-  <button name='language' type='submit' value="TH">TH</button>
-  <button name='language' type='submit' value="EN">EN</button>
+  <button name='language' type='submit' value="th">TH</button>
+  <button name='language' type='submit' value="en">EN</button>
 </form><br>
 
 

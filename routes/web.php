@@ -17,22 +17,24 @@ use App\Models\User;
 Route::view('/', 'login');
 Route::view('/login', 'login')->name('login');
 Route::view('/register', 'register')->name('register');
-Route::view('/create', 'create')->middleware('auth')->name('create');
-Route::view('/settings', 'settings')->middleware('auth')->name('settings');
-
-Route::get('/homePage', function () {
-    $posts = DB::table('posts')->get();
-    return view('homePage')->with('posts',$posts);
-})->middleware('auth');
-
-Route::get('/post/{postId}', function ($postId=NULL) {
-    $posts = DB::table('posts')->where('id',$postId)->select('id','title','body')->first();
-    $comments = DB::table('comment')->where('post_id',$postId)->select('message')->get();
-    $data=array('posts'=>$posts,'comments'=>$comments);
-    return view('comment_post')->with('data',$data);
-})->middleware('auth')->name('post');
 
 
+Route::middleware('auth')->group(function () {
+    Route::view('/create', 'create')->middleware('auth')->name('create');
+    Route::view('/settings', 'settings')->middleware('auth')->name('settings');
+
+    Route::get('/homePage', function () {
+        $posts = DB::table('posts')->get();
+        return view('homePage')->with('posts',$posts);
+    });
+
+    Route::get('/post/{postId}', function ($postId=NULL) {
+        $posts = DB::table('posts')->where('id',$postId)->select('id','title','body')->first();
+        $comments = DB::table('comment')->where('post_id',$postId)->select('message')->get();
+        $data=array('posts'=>$posts,'comments'=>$comments);
+        return view('comment_post')->with('data',$data);
+    })->name('post');
+});
 
 Route::post('login','loginController@signin');
 Route::post('register','registerController@signup');

@@ -54,6 +54,8 @@
     @foreach ($data['comments'] as $comment)
         <li>
             {{$comment->message }}
+            
+            <button type='submit' name='delete' value='delete'>delete</button>
         </li>
     @endforeach
  </form>
